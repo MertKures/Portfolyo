@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using EntityLayer.Concrete;
+
+@model About;
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">Hakkımda Düzenleme Paneli</p>
+            @using (Html.BeginForm("Index", "About", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.AboutID)
+                <div class="form-group">
+                    <label>Başlık</label>
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    @Html.TextAreaFor(x => x.Description, 6, 3, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Yaş</label>
+                    @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Telefon</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>E-posta</label>
+                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Adres</label>
+                    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Resim Yolu</label>
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                </div>
+                <br />
+                <button type="submit" class="btn btn-success mr-2">Güncelle</button>
+            }
+        </div>
+    </div>
+</div>

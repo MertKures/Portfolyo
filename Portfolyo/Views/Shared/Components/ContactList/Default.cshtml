@@ -1,0 +1,15 @@
+﻿<div class="section px-2 px-lg-4 pb-4 pt-5 mb-5" id="contact">
+    <div class="container-narrow">
+        <div class="text-center mb-5">
+            <h2 class="marker marker-center">Contact Me</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+               @await Component.InvokeAsync("SendMessage")  
+            </div>
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+                @await Component.InvokeAsync("ContactDetails") 
+            </div>
+        </div>
+    </div>
+</div>

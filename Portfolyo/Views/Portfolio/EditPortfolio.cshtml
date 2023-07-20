@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "EditPortfolio";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using EntityLayer.Concrete;
+
+@model Portfolio
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">Yeni Deneyim Ekleme Paneli</p>
+            @using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post, new { @class = "forms-sample"}))
+            {
+                @Html.HiddenFor(x => x.PortfolioID)
+                <div class="form-group">
+                    @Html.Label("Proje Adı")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Platform")
+                    @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Platform, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Resim Yolu 1")
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Resim Yolu 2")
+                    @Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ImageUrl2, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Ek Resim Yolu 1")
+                    @Html.TextBoxFor(x => x.Image1, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Image1, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Ek Resim Yolu 2")
+                    @Html.TextBoxFor(x => x.Image2, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Image2, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Ek Resim Yolu 3")
+                    @Html.TextBoxFor(x => x.Image3, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Image3, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Ek Resim Yolu 4")
+                    @Html.TextBoxFor(x => x.Image4, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Image4, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Proje Bağlantısı")
+                    @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ProjectUrl, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Tamamlanma yüzdesi")
+                    @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Value, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Durum")
+                    @Html.CheckBoxFor(x => x.Status, new { @class = "form-control" })
+                </div>
+                <button class="btn btn-success">Güncelle</button>
+                <a class="btn btn-dark" href="/Portfolio">İptal</a>
+            }
+        </div>
+    </div>
+</div>
