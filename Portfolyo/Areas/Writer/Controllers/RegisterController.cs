@@ -25,6 +25,9 @@ namespace Portfolyo.Areas.Writer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
+            // Türkçe karakter kullanılmayacak
+            // Şifre 6 karakter veya daha uzun olacak
+            // Şifrede en az 1 büyük harf, 1 küçük harf, 1 sayı ve 1 özel karakter olacak
             if (ModelState.IsValid)
             {
                 WriterUser writer = new WriterUser()
@@ -48,7 +51,7 @@ namespace Portfolyo.Areas.Writer.Controllers
                     ModelState.AddModelError("", item.Description);
                 }
             }
-            return View();
+            return View(p);
         }
     }
 }
