@@ -1,10 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Portfolyo.Areas.Writer.Models;
+using System.Threading.Tasks;
 
 namespace Portfolyo.Areas.Writer.Controllers
 {
     [Area("Writer")]
     public class RegisterController : Controller
     {
+        private readonly UserManager<WriterUser> _userManager;
+
+        public RegisterController(UserManager<WriterUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -12,8 +23,31 @@ namespace Portfolyo.Areas.Writer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string p)
+        public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
+            if (ModelState.IsValid)
+            {
+                WriterUser writer = new WriterUser()
+                {
+                    Name = p.Name,
+                    Surname = p.Surname,
+                    Email = p.Mail,
+                    UserName = p.UserName,
+                    ImageUrl = p.ImageUrl
+                };
+
+                var result = await _userManager.CreateAsync(writer, p.Password);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+            }
             return View();
         }
     }
