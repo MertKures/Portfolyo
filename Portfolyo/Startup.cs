@@ -18,6 +18,8 @@ namespace Portfolyo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataAccessLayer.Concrete.Context>();
+            services.AddIdentity<EntityLayer.Concrete.WriterUser, EntityLayer.Concrete.WriterRole>().AddEntityFrameworkStores<DataAccessLayer.Concrete.Context>();
             services.AddControllersWithViews();
         }
 
