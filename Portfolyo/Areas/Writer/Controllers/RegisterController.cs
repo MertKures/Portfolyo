@@ -47,10 +47,12 @@ namespace Portfolyo.Areas.Writer.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-
-                foreach (var item in result.Errors)
+                else
                 {
-                    ModelState.AddModelError("", item.Description);
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
                 }
             }
             return View(p);
