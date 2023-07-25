@@ -20,7 +20,7 @@ namespace Portfolyo.Areas.Writer.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Lütfen şifrenizi tekrar yazın.")]
-        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor.")]
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Lütfen e-postanızı yazın.")]
