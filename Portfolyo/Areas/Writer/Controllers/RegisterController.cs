@@ -39,6 +39,8 @@ namespace Portfolyo.Areas.Writer.Controllers
                     ImageUrl = p.ImageUrl
                 };
 
+                // ModelState.IsValid kullanıldığından bu kontrolün yapılmasına gerek yok.
+                //if (p.Password == p.ConfirmPassword)
                 var result = await _userManager.CreateAsync(writer, p.Password);
 
                 if (result.Succeeded)
