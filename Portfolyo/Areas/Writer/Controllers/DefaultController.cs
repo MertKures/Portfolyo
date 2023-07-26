@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolyo.Areas.Writer.Controllers
@@ -7,9 +9,13 @@ namespace Portfolyo.Areas.Writer.Controllers
     [Authorize]
     public class DefaultController : Controller
     {
+        AnnouncementManager _announcementManager = new AnnouncementManager(new EfAnnouncementDal());
+
+        [HttpGet("/Writer/")]
         public IActionResult Index()
         {
-            return View();
+            var result = _announcementManager.TGetList();
+            return View(result);
         }
     }
 }
