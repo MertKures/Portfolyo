@@ -17,5 +17,12 @@ namespace Portfolyo.Areas.Writer.Controllers
             var result = _announcementManager.TGetList();
             return View(result);
         }
+
+        [HttpGet]
+        public IActionResult AnnouncementDetails(int id)
+        {
+            var value = _announcementManager.TGetById(id);
+            return View(value);
+        }
     }
 }
