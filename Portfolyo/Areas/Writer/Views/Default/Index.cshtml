@@ -20,15 +20,16 @@
                             <th>Başlık</th>
                             <th>Tarih</th>
                             <th>Tür</th>
+                            <th>Detaylar</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.ID</td>
+                                <th>@item.ID</th>
                                 <td>@item.Title</td>
-                                <td>@item.Date</td>
+                                <td>@item.Date.ToString("dd-MMM-yyyy")</td>
                                 @if (item.Type == "Test")
                                 {
                                     color.Clear();
@@ -40,6 +41,7 @@
                                     color.Append("badge-info");
                                 }
                                 <td><label class="badge @color">@item.Type</label></td>
+                                <td><a href="/Writer/Default/AnnouncementDetails/@item.ID" class="btn btn-outline-primary">Detaylar</a></td>
                             </tr>
                         }
                     </tbody>
