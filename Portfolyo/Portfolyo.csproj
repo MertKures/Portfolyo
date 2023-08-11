@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\userimage\**" />
+    <Content Remove="wwwroot\userimage\**" />
+    <EmbeddedResource Remove="wwwroot\userimage\**" />
+    <None Remove="wwwroot\userimage\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -29,7 +36,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Writer\Data\" />
-    <Folder Include="wwwroot\userimage\" />
   </ItemGroup>
 
 </Project>
