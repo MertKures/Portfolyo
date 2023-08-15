@@ -11,7 +11,7 @@ namespace Portfolyo.Areas.Writer.Controllers
     {
         AnnouncementManager _announcementManager = new AnnouncementManager(new EfAnnouncementDal());
 
-        [HttpGet("/Writer/")]
+        [HttpGet("/Writer/Default")]
         public IActionResult Index()
         {
             var result = _announcementManager.TGetList();
