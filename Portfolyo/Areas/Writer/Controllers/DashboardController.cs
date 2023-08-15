@@ -2,6 +2,7 @@
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace Portfolyo.Areas.Writer.Controllers
                 ViewBag.SkillCount = context.Skills.Count();
             }
 
-            string apiKey = "d8b3695efda917cb695605a0c0517a81";
+            string apiKey = Environment.GetEnvironmentVariable("OPENWEATHERMAP_API_KEY", EnvironmentVariableTarget.User);
             string url = string.Concat("https://api.openweathermap.org/data/2.5/weather?q=Istanbul&appid=", apiKey, "&units=metric&lang=tr&mode=xml");
 
             try
@@ -41,9 +42,9 @@ namespace Portfolyo.Areas.Writer.Controllers
                 XDocument document = XDocument.Load(url);
                 ViewBag.Temperature = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
             }
-            catch (System.Exception)
+            catch (System.Exception error)
             {
-                Debug.WriteLine("Hava durumu bilgisi alınamadı.");
+                Debug.WriteLine(string.Concat("[ERROR]: ", error.Message));
             }
 
             return View();
