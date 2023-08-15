@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete;
+@model List<Announcement>
+
+@{
+    string color = "bg-success";
+}
+
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+    <p class="mb-0 font-weight-normal float-left dropdown-header">Bildirimler</p>
+    @foreach (var item in Model)
+    {
+        switch (item.Type)
+        {
+            case "Test":
+                color = "bg-danger";
+                break;
+            default:
+                // If we don't add this line, color will be the same as the previous item.
+                color = "bg-success";
+                break;
+        }
+        <a class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+                <div class="preview-icon @color">
+                    <i class="ti-info-alt mx-0"></i>
+                </div>
+            </div>
+            <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal">@item.Title</h6>
+                <p class="font-weight-light small-text mb-0 text-muted">
+                    @item.Type
+                </p>
+            </div>
+        </a>
+    }
+</div>
