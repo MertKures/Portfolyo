@@ -48,5 +48,10 @@ namespace BusinessLayer.Concrete
         {
             return _userMessageDal.GetUserMessagesWithUser();
         }
+
+        public List<UserMessage> TGetByFilter()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

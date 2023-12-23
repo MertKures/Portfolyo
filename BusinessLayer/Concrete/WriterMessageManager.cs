@@ -24,6 +24,16 @@ namespace BusinessLayer.Concrete
             throw new System.NotImplementedException();
         }
 
+        public List<WriterMessage> TGetByFilter(string p)
+        {
+            return _writerMessageDal.GetByFilter(x => x.Receiver == p);
+        }
+
+        public List<WriterMessage> TGetByFilter()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public WriterMessage TGetById(int id)
         {
             throw new System.NotImplementedException();

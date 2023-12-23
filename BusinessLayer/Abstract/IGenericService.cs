@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
         public T TGetById(int id);
         public List<T> TGetList();
         public T? TGetFirstOrDefault();
+        public List<T> TGetByFilter();
     }
 }

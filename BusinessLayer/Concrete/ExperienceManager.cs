@@ -42,5 +42,10 @@ namespace BusinessLayer.Concrete
         {
             return _experienceDal.GetFirstOrDefault();
         }
+
+        public List<Experience> TGetByFilter()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

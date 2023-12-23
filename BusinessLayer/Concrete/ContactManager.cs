@@ -42,5 +42,10 @@ namespace BusinessLayer.Concrete
         {
             return _contactDal.GetFirstOrDefault();
         }
+
+        public List<Contact> TGetByFilter()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

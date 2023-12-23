@@ -24,6 +24,11 @@ namespace BusinessLayer.Concrete
             _userDal.Delete(t);
         }
 
+        public List<User> TGetByFilter()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public User TGetById(int id)
         {
             return _userDal.GetByID(id);

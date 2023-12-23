@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             _skillDal.Delete(t);
         }
 
+        public List<Skill> TGetByFilter()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Skill TGetById(int id)
         {
             return _skillDal.GetByID(id);
