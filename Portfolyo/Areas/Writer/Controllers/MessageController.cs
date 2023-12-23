@@ -19,12 +19,12 @@ namespace Portfolyo.Areas.Writer.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string p)
+        public async Task<IActionResult> Index(string receiverEmail)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            p = values.Email;
+            receiverEmail = values.Email;
 
-            var messageList = _writerMessageManager.TGetByFilter(p);
+            var messageList = _writerMessageManager.GetReceiversMessages(receiverEmail);
 
             return View(messageList);
         }
