@@ -28,8 +28,8 @@
                             <tr>
                                 <th>@item.WriterMessageID</th>
                                 <td>@item.Subject</td>
-                                <td>(@((DateTime)item.Date).ToString("dd-MMM-yyyy")</td>
-                                @* TODO: Fix !! *@
+                                <td>@(item.Date.ToString("dd-MMM-yyyy"))</td>
+                                @* TODO: Fix link !! *@
                                 <td><a href="/Writer/Default/AnnouncementDetails/@item.WriterMessageID" class="btn btn-outline-primary">Detaylar</a></td>
                             </tr>
                         }
