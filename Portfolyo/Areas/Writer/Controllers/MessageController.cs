@@ -28,5 +28,15 @@ namespace Portfolyo.Areas.Writer.Controllers
 
             return View(messageList);
         }
+
+        public async Task<IActionResult> SenderMessage(string senderEmail)
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            senderEmail = values.Email;
+
+            var messageList = _writerMessageManager.GetSendersMessages(senderEmail);
+
+            return View(messageList);
+        }
     }
 }
