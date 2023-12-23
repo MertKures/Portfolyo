@@ -19,7 +19,7 @@ namespace Portfolyo.Areas.Writer.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string receiverEmail)
+        public async Task<IActionResult> ReceiverMessage(string receiverEmail)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             receiverEmail = values.Email;
