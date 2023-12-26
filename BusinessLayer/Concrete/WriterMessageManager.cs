@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete
 
         public WriterMessage TGetById(int id)
         {
-            throw new System.NotImplementedException();
+            return _writerMessageDal.GetByID(id);
         }
 
         public WriterMessage TGetFirstOrDefault()
