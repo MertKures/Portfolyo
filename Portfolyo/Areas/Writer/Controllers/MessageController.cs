@@ -38,5 +38,12 @@ namespace Portfolyo.Areas.Writer.Controllers
 
             return View(messageList);
         }
+
+        [HttpGet]
+        public IActionResult MessageDetails(int id)
+        {
+            WriterMessage writerMessage = _writerMessageManager.TGetById(id);
+            return View(writerMessage);
+        }
     }
 }
