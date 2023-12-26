@@ -19,6 +19,7 @@
                             <th>#</th>
                             <th>Konu</th>
                             <th>Alıcı</th>
+                            <th>Tarih</th>
                             <th>Detaylar</th>
                         </tr>
                     </thead>
@@ -28,9 +29,10 @@
                             <tr>
                                 <th>@item.WriterMessageID</th>
                                 <td>@item.Subject</td>
+                                <td>@item.ReceiverName</td>
                                 <td>@(item.Date.ToString("dd-MMM-yyyy"))</td>
                                 @* TODO: Fix link !! *@
-                                <td><a href="/Writer/Default/AnnouncementDetails/@item.WriterMessageID" class="btn btn-outline-primary">Detaylar</a></td>
+                                <td><a href="/Writer/Message/MessageDetails/@item.WriterMessageID" class="btn btn-outline-primary">Mesajı Gör</a></td>
                             </tr>
                         }
                     </tbody>
